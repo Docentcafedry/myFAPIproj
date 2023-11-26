@@ -11,8 +11,8 @@ from core.settings import settings
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Load the ML model
-    async with db_helper.connection.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
+    # async with db_helper.connection.begin() as conn:
+    #     await conn.run_sync(Base.metadata.create_all)
     yield
     # Clean up the ML models and release the resources
 
