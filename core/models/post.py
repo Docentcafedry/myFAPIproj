@@ -12,4 +12,8 @@ class Post(Base, UserReletionMixin):
     title: Mapped[str] = mapped_column(String(40), unique=True)
     body: Mapped[str | None] = mapped_column(Text(200), default="", server_default="")
 
+    def __str__(self):
+        return f"{self.__class__.__name__}(id={self.id}, title={self.title})"
 
+    def __repr__(self):
+        return  str(self)
